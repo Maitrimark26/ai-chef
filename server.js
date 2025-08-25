@@ -100,7 +100,7 @@ app.get('/api/recipe', (req, res) => {
   res.send('Use POST request at /api/recipe with ingredients in body');
 });
 
-app.post("/api/recipe", async (req, res) => {
+app.post("https://ai-chef-2.onrender.com/api/recipe", async (req, res) => {
   const { ingredients } = req.body;
 
   if (!ingredients) {
@@ -111,7 +111,7 @@ app.post("/api/recipe", async (req, res) => {
     const response = await axios.post(
       "https://openrouter.ai/api/v1/chat/completions",
       {
-        model: "openai/gpt-3.5-turbo",
+        model: "openai/gpt-4.5-turbo",
         messages: [
           {
             role: "user",
