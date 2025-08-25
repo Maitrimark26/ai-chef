@@ -83,7 +83,10 @@ if (!OPENAI_API_KEY) {
 }
 app.get('/',(req,res)=>{
   res.send('Server is running');
-})
+});
+app.get('/api/recipe', (req, res) => {
+  res.send('Use POST request at /api/recipe with ingredients in body');
+});
 app.post("/api/recipe", async (req, res) => {
   const { ingredients } = req.body;
 
