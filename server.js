@@ -109,7 +109,7 @@ app.post("/api/recipe", async (req, res) => {
         headers: {
           Authorization: `Bearer ${OPENAI_API_KEY}`,
           "Content-Type": "application/json",
-          "HTTP-Referer": "http://localhost:3000", // replace with deployed frontend URL
+          "HTTP-Referer": "https://dashing-froyo-e2006a.netlify.app/", // replace with deployed frontend URL
         },
       }
     );
