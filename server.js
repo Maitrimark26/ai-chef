@@ -130,8 +130,8 @@ app.post("/api/recipe", async (req, res) => {
       }
     );
 
-    const reply = response.data.choices[0].message;
-    res.json(reply);
+    const reply = response.data.choices[0].message.content;
+    res.json({ content: reply });
   } catch (error) {
     console.error("OpenAI API Error:", error.response?.data || error.message);
     res.status(500).json({ error: "Failed to generate recipe" });
