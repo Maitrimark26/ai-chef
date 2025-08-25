@@ -81,7 +81,9 @@ if (!OPENAI_API_KEY) {
   console.error("❌ OPENAI_API_KEY not found in .env");
   process.exit(1);
 }
-
+app.get('/',(req,res)=>{
+  res.send('Server is running');
+})
 app.post("/api/recipe", async (req, res) => {
   const { ingredients } = req.body;
 
