@@ -21,7 +21,7 @@ export const InputCard = () => {
     setRecipe("");
 
     try {
-      const response = await axios.post("https://ai-chef-1-3ufr.onrender.com/api/recipe", {
+      const response = await axios.post("https://ai-chef-2.onrender.com/api/recipe", {
         ingredients,
       });
       setRecipe(response.data.content);
