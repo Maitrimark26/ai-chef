@@ -15,7 +15,7 @@ export const RecipeCard = ({ recipe }) => {
       </strong>
       <hr className="border-gray-400 mb-2" />
       <p className="text-base sm:text-lg leading-relaxed whitespace-pre-line">
-        {recipe}
+        {recipe.replace(/#/g, "")}
       </p>
     </motion.div>
   );
