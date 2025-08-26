@@ -2,6 +2,8 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
+import remarkBreaks from "remark-breaks";
+
 export const RecipeCard = ({ recipe }) => {
   return (
 //     <motion.div
@@ -30,9 +32,14 @@ export const RecipeCard = ({ recipe }) => {
     Recipe made with above ingredients:
   </strong>
   <hr className="border-gray-400 mb-2" />
-  <ReactMarkdown className="text-base sm:text-lg leading-relaxed">
-    {recipe}
-  </ReactMarkdown>
+<ReactMarkdown
+  remarkPlugins={[remarkBreaks]}
+  components={{
+    p: ({ children }) => <p className="mb-1 leading-relaxed">{children}</p>
+  }}
+>
+  {recipe}
+</ReactMarkdown>
 </motion.div>
   );
 };
