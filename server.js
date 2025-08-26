@@ -29,6 +29,29 @@ app.get("/", (req, res) => {
 });
 
 // ✅ Optional GET route for testing
+app.get("/test", async (req, res) => {
+  try {
+    const response = await axios.post(
+      "https://openrouter.ai/api/v1/chat/completions",
+      {
+        model: "openai/gpt-3.5-turbo", // pehle isse test kar
+        messages: [{ role: "user", content: "Say hello world" }],
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${OPENAI_API_KEY}`,
+          "Content-Type": "application/json",
+          "HTTP-Referer": "https://dashing-froyo-e2006a.netlify.app",
+          "X-Title": "AI Chef",
+        },
+      }
+    );
+    res.json(response.data);
+  } catch (err) {
+    console.error(err.response?.data || err.message);
+    res.status(500).json({ error: "Test failed" });
+  }
+});
 
 
 // ✅ POST route: main GPT request
