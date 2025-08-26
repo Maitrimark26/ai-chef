@@ -1,7 +1,7 @@
 
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-
+import ReactMarkdown from "react-markdown";
 export const RecipeCard = ({ recipe }) => {
   return (
     <motion.div
@@ -15,7 +15,9 @@ export const RecipeCard = ({ recipe }) => {
       </strong>
       <hr className="border-gray-400 mb-2" />
       <p className="text-base sm:text-lg leading-relaxed whitespace-pre-line">
-        {recipe.replace(/#/g, "")}
+<ReactMarkdown className="text-base sm:text-lg leading-relaxed">
+  {recipe}
+</ReactMarkdown>
       </p>
     </motion.div>
   );
